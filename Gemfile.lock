@@ -1,0 +1,24 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.3.3)
+    backports (2.8.2)
+    faraday (0.8.7)
+      multipart-post (~> 1.1)
+    gh (0.9.1)
+      addressable
+      backports (~> 2.3)
+      faraday (~> 0.8)
+      multi_json (~> 1.0)
+      net-http-persistent (>= 2.7)
+      net-http-pipeline
+    multi_json (1.7.2)
+    multipart-post (1.2.0)
+    net-http-persistent (2.8)
+    net-http-pipeline (1.0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  gh (~> 0.9.0)
