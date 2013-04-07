@@ -23,16 +23,11 @@ class Trainer::Whip
     shell.run(
       "heroku run rake db:migrate -a #{APP_NAME}",
       "heroku run rake trainer:prepare -a #{APP_NAME}",
-      "heroku run bundle exec flying-sphinx configure -a #{APP_NAME}",
-      "heroku run bundle exec flying-sphinx index -a #{APP_NAME}",
-      "heroku run bundle exec flying-sphinx start -a #{APP_NAME}"
     )
 
     test
-    shell.run "heroku run bundle exec flying-sphinx rebuild -a #{APP_NAME}"
-    test
 
-    shell.run "heroku run bundle exec flying-sphinx stop -a #{APP_NAME}"
+    shell.run "heroku run rake trainer:cleanup -a #{APP_NAME}"
   ensure
     Dir.chdir '/'
 
@@ -41,7 +36,7 @@ class Trainer::Whip
   end
 
   def test
-    notify unless shell.run 'heroku run rake trainer:test -a #{APP_NAME}'
+    notify unless shell.run "heroku run rake trainer:test -a #{APP_NAME}"
   end
 
   private
