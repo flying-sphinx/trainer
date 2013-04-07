@@ -2,7 +2,7 @@ require 'tempfile'
 
 class Trainer::Shell
   def run(*commands)
-    commands.all? { |command| system(environment, command) }
+    commands.all? { |command| system environment, command, err: :out }
   end
 
   def unlink
