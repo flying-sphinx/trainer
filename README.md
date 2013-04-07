@@ -1,4 +1,4 @@
-= Trainer
+# Trainer
 
 Trainer takes a collection of repositories, deploys them each in turn to a Heroku app, running tests via rake tasks each time to confirm they all behave as expected.
 
