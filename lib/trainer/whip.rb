@@ -39,7 +39,7 @@ class Trainer::Whip
   end
 
   def test
-    notify unless shell.run
+    notify unless shell.run 'heroku run rake trainer:test'
   end
 
   private
@@ -51,7 +51,7 @@ class Trainer::Whip
   end
 
   def notify
-    #
+    raise "Test Failed"
   end
 
   def path
