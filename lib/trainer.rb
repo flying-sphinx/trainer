@@ -1,4 +1,15 @@
 require 'gh'
+require 'mail'
+
+Mail.defaults do
+  delivery_method :smtp,
+    :address              => "smtp.sendgrid.net",
+    :port                 => 25,
+    :domain               => ENV['SENDGRID_DOMAIN'],
+    :user_name            => ENV['SENDGRID_USERNAME'],
+    :password             => ENV['SENDGRID_PASSWORD'],
+    :authentication       => 'plain'
+end
 
 module Trainer
   ORGANISATION = ENV['TRAINER_ORGANISATION']

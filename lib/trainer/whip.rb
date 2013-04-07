@@ -48,7 +48,14 @@ class Trainer::Whip
   end
 
   def notify
-    raise "Test Failed"
+    mail = Mail.new do
+      from    ENV['TRAINER_EMAIL']
+      to      ENV['TRAINER_EMAIL']
+      subject "Trainer Failure for #{repository}"
+    end
+
+    mail.body = "trainer:test failed for #{repository}"
+    mail.deliver
   end
 
   def path
