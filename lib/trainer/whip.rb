@@ -21,7 +21,7 @@ class Trainer::Whip
     )
 
     shell.run(
-      "heroku run rake db:migrate -a #{APP_NAME}",
+      "heroku run rake db:schema:load -a #{APP_NAME}",
       "heroku run rake trainer:prepare -a #{APP_NAME}",
     )
 
